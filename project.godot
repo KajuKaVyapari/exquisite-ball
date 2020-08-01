@@ -19,6 +19,12 @@ config/name="Exquisite-ball"
 run/main_scene="res://scenes/world.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/width=1920
+window/size/height=1080
+window/size/fullscreen=true
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"

@@ -29,7 +29,6 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 0/z_index = 0
 
 [node name="border_tilemap" type="TileMap"]
-scale = Vector2( 0.5, 0.5 )
 tile_set = SubResource( 2 )
 format = 1
 tile_data = PoolIntArray( 43, 0, 0 )
