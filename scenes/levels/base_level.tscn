@@ -14,13 +14,14 @@ colors = PoolColorArray( 0.933594, 0.455856, 0.455856, 1 )
 gradient = SubResource( 1 )
 width = 1920
 
-[node name="tutorial" type="Node2D"]
+[node name="base_level" type="Node2D"]
 
 [node name="background" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = -2.37842
 margin_right = 1920.0
-margin_bottom = 1080.0
+margin_bottom = 1077.62
 texture = SubResource( 2 )
 expand = true
 __meta__ = {
@@ -34,9 +35,6 @@ tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 
 
 [node name="player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 960, 540 )
-collision_layer = 2
-collision_mask = 0
-gravity_scale = 3.0
 
 [node name="present_tilemap" parent="." instance=ExtResource( 3 )]
 collision_layer = 0
@@ -49,4 +47,4 @@ collision_layer = 0
 collision_mask = 4
 
 [node name="tilemap_tween" parent="past_tilemap" instance=ExtResource( 5 )]
-[connection signal="tween_completed" from="present_tilemap/tilemap_tween" to="player" method="_on_tilemap_tween_completed"]
+[connection signal="tween_completed" from="present_tilemap/tilemap_tween" to="player" method="_on_tilemap_tween_tween_completed"]
