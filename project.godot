@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Exquisite-ball"
-run/main_scene="res://scenes/world.tscn"
+run/main_scene="res://scenes/menus/main_menu.tscn"
 config/icon="res://icon.png"
 
 [display]

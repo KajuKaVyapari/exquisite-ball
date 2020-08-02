@@ -37,6 +37,8 @@ func _physics_process(delta):
 		# Rewind Mechanic
 		
 		Engine.time_scale = 0.8
+		add_central_force(Vector2(0.001, 0.001)) # Fixes ball stuck bug
+		
 		if time == "present":
 			collision_layer = 4
 			present_tween.interpolate_property(present_tilemap, "modulate", present_tilemap.modulate, Color("#00ffffff"), 1)

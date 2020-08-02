@@ -1,6 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/fonts/LeckerliOne-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://scenes/menus/base_button.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/levels/tutorial.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/menus/quit_button.gd" type="Script" id=4]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.480447, 1 )
@@ -10,7 +13,7 @@ colors = PoolColorArray( 0.176471, 0.882353, 0.6, 1, 0.512177, 1, 0.457031, 1, 0
 gradient = SubResource( 1 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 100
+size = 400
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
@@ -23,15 +26,15 @@ border_width_left = 4
 border_width_top = 4
 border_width_right = 4
 border_width_bottom = 4
-border_color = Color( 1, 1, 1, 1 )
+border_color = Color( 0.8, 0.8, 0.8, 0 )
 corner_radius_top_left = 15
 corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
-expand_margin_left = 20.0
-expand_margin_right = 20.0
-expand_margin_top = 20.0
-expand_margin_bottom = 20.0
+expand_margin_left = 40.0
+expand_margin_right = 40.0
+expand_margin_top = 40.0
+expand_margin_bottom = 40.0
 
 [node name="main_menu" type="Control"]
 anchor_right = 1.0
@@ -50,10 +53,12 @@ __meta__ = {
 }
 
 [node name="title" type="Label" parent="."]
-margin_left = 602.455
-margin_top = 254.387
-margin_right = 1254.46
-margin_bottom = 390.387
+margin_left = 550.0
+margin_top = 188.0
+margin_right = 3321.0
+margin_bottom = 735.0
+rect_rotation = 9.59984
+rect_scale = Vector2( 0.4, 0.4 )
 theme = SubResource( 4 )
 custom_styles/normal = SubResource( 5 )
 custom_colors/font_color = Color( 0.988235, 0.411765, 0.313726, 1 )
@@ -64,3 +69,26 @@ text = "Ex-Quisite Ball"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="play_button" parent="." instance=ExtResource( 2 )]
+margin_left = 860.0
+margin_top = 601.122
+margin_right = 1026.0
+margin_bottom = 621.122
+
+[node name="tutorial_button" parent="." instance=ExtResource( 2 )]
+margin_left = 860.0
+margin_top = 751.122
+margin_right = 1026.0
+margin_bottom = 771.123
+text = "Tutorial"
+scene_to_load = ExtResource( 3 )
+
+[node name="quit_button" parent="." instance=ExtResource( 2 )]
+margin_left = 860.0
+margin_top = 901.122
+margin_right = 1026.0
+margin_bottom = 921.122
+text = "Quit"
+script = ExtResource( 4 )
+[connection signal="pressed" from="quit_button" to="quit_button" method="_on_quit_button_pressed"]
