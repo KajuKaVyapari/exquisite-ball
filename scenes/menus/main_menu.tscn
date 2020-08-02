@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/fonts/LeckerliOne-Regular.ttf" type="DynamicFontData" id=1]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.480447, 1 )
+colors = PoolColorArray( 0.176471, 0.882353, 0.6, 1, 0.512177, 1, 0.457031, 1, 0.917647, 0.996078, 0.6, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 100
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=4]
+default_font = SubResource( 3 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.945098, 0.945098, 0.945098, 0 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+expand_margin_left = 20.0
+expand_margin_right = 20.0
+expand_margin_top = 20.0
+expand_margin_bottom = 20.0
+
+[node name="main_menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = SubResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="title" type="Label" parent="."]
+margin_left = 602.455
+margin_top = 254.387
+margin_right = 1254.46
+margin_bottom = 390.387
+theme = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+custom_colors/font_color = Color( 0.988235, 0.411765, 0.313726, 1 )
+custom_colors/font_color_shadow = Color( 0.890196, 0.243137, 0.243137, 1 )
+custom_constants/shadow_offset_x = 8
+custom_constants/shadow_offset_y = 1
+text = "Ex-Quisite Ball"
+__meta__ = {
+"_edit_use_anchors_": false
+}

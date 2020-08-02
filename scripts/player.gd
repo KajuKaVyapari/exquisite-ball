@@ -6,9 +6,7 @@ onready var past_tilemap = get_parent().get_node("past_tilemap")
 onready var present_tween = get_parent().get_node("present_tilemap/tilemap_tween")
 onready var past_tween = get_parent().get_node("past_tilemap/tilemap_tween")
 
-var gravity = 15
 var gravity_direction = "down"
-
 var time = "present"
 
 
@@ -35,14 +33,16 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("rewind"):
 		
+		
 		# Rewind Mechanic
+		
+		Engine.time_scale = 0.8
 		if time == "present":
 			collision_layer = 4
 			present_tween.interpolate_property(present_tilemap, "modulate", present_tilemap.modulate, Color("#00ffffff"), 1)
 			past_tween.interpolate_property(past_tilemap, "modulate", past_tilemap.modulate, Color("#ffffff"), 1)
 			present_tween.start()
 			past_tween.start()
-
 			time = "past"
 		
 		elif time == "past":
@@ -52,3 +52,7 @@ func _physics_process(delta):
 			present_tween.start()
 			past_tween.start()
 			time = "present"
+
+
+func _on_tilemap_tween_completed(object, key):
+	Engine.time_scale = 1
