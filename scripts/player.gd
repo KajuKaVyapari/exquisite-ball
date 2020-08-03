@@ -1,10 +1,10 @@
 extends RigidBody2D
 
 
-onready var present_tilemap = get_parent().get_node("present_tilemap")
-onready var past_tilemap = get_parent().get_node("past_tilemap")
-onready var present_tween = get_parent().get_node("present_tilemap/tilemap_tween")
-onready var past_tween = get_parent().get_node("past_tilemap/tilemap_tween")
+onready var present_items = get_parent().get_node("present_items")
+onready var past_items = get_parent().get_node("past_items")
+onready var present_tween = get_parent().get_node("present_items/present_tilemap/tilemap_tween")
+onready var past_tween = get_parent().get_node("past_items/past_tilemap/tilemap_tween")
 onready var gravity_indicator = get_parent().get_node("gravity_indicator")
 
 var gravity_direction = "down"
@@ -13,7 +13,7 @@ var time = "present"
 
 func _ready():
 	
-	past_tilemap.modulate = Color("#00ffffff")
+	past_items.modulate = Color("#00ffffff")
 	Physics2DServer.area_set_param(get_world_2d().space, Physics2DServer.AREA_PARAM_GRAVITY_VECTOR, Vector2.DOWN)
 	get_parent().get_node("time_indicator").text = time.capitalize()
 
@@ -52,16 +52,16 @@ func _physics_process(delta):
 		
 		if time == "present":
 			collision_layer = 4
-			present_tween.interpolate_property(present_tilemap, "modulate", present_tilemap.modulate, Color("#00ffffff"), .5)
-			past_tween.interpolate_property(past_tilemap, "modulate", past_tilemap.modulate, Color("#ffffff"), .5)
+			present_tween.interpolate_property(present_items, "modulate", present_items.modulate, Color("#00ffffff"), .5)
+			past_tween.interpolate_property(past_items, "modulate", past_items.modulate, Color("#ffffff"), .5)
 			present_tween.start()
 			past_tween.start()
 			time = "past"
 		
 		elif time == "past":
 			collision_layer = 2
-			present_tween.interpolate_property(present_tilemap, "modulate", present_tilemap.modulate, Color("#ffffff"), .5)
-			past_tween.interpolate_property(past_tilemap, "modulate", past_tilemap.modulate, Color("#00ffffff"), .5)
+			present_tween.interpolate_property(present_items, "modulate", present_items.modulate, Color("#ffffff"), .5)
+			past_tween.interpolate_property(past_items, "modulate", past_items.modulate, Color("#00ffffff"), .5)
 			present_tween.start()
 			past_tween.start()
 			time = "present"

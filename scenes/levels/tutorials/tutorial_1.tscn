@@ -39,3 +39,6 @@ position = Vector2( 960, 324 )
 [node name="win_object" parent="." index="9"]
 position = Vector2( 1783.08, 138.96 )
 scene_to_load = "res://scenes/levels/tutorials/tutorial_2.tscn"
+
+[node name="win_sprite" parent="win_object" index="0"]
+frame = 1

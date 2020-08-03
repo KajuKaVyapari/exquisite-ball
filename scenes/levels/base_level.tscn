@@ -9,7 +9,7 @@
 [ext_resource path="res://assets/sprites/win_object/win_object-1.png" type="Texture" id=7]
 [ext_resource path="res://assets/sprites/win_object/win_object-2.png" type="Texture" id=8]
 [ext_resource path="res://scripts/levels/win_object.gd" type="Script" id=9]
-[ext_resource path="res://assets/fonts/Dokdo-Regular.ttf" type="DynamicFontData" id=10]
+[ext_resource path="res://assets/fonts/EastSeaDokdo-Regular.ttf" type="DynamicFontData" id=10]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0 )
@@ -19,11 +19,11 @@ colors = PoolColorArray( 0.933594, 0.455856, 0.455856, 1 )
 gradient = SubResource( 1 )
 width = 1920
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=3]
 size = 50
 font_data = ExtResource( 10 )
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="SpriteFrames" id=4]
 animations = [ {
 "frames": [ ExtResource( 7 ), ExtResource( 8 ) ],
 "loop": true,
@@ -31,7 +31,7 @@ animations = [ {
 "speed": 3.0
 } ]
 
-[sub_resource type="CircleShape2D" id=4]
+[sub_resource type="CircleShape2D" id=5]
 radius = 32.0
 
 [node name="base_level" type="Node2D"]
@@ -62,7 +62,7 @@ margin_left = 1534.0
 margin_top = 936.092
 margin_right = 1627.0
 margin_bottom = 987.092
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Past"
 __meta__ = {
@@ -72,29 +72,33 @@ __meta__ = {
 [node name="player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 960, 540 )
 
-[node name="present_tilemap" parent="." instance=ExtResource( 3 )]
+[node name="present_items" type="Node2D" parent="."]
+
+[node name="present_tilemap" parent="present_items" instance=ExtResource( 3 )]
 collision_layer = 0
 collision_mask = 2
 
-[node name="tilemap_tween" parent="present_tilemap" instance=ExtResource( 5 )]
+[node name="tilemap_tween" parent="present_items/present_tilemap" instance=ExtResource( 5 )]
 
-[node name="past_tilemap" parent="." instance=ExtResource( 4 )]
+[node name="past_items" type="Node2D" parent="."]
+
+[node name="past_tilemap" parent="past_items" instance=ExtResource( 4 )]
 collision_layer = 0
 collision_mask = 4
 
-[node name="tilemap_tween" parent="past_tilemap" instance=ExtResource( 5 )]
+[node name="tilemap_tween" parent="past_items/past_tilemap" instance=ExtResource( 5 )]
 
 [node name="win_object" type="Area2D" parent="."]
-position = Vector2( 972.659, 347.738 )
+position = Vector2( 960, 300 )
 collision_layer = 0
 collision_mask = 7
 script = ExtResource( 9 )
 
 [node name="win_sprite" type="AnimatedSprite" parent="win_object"]
-frames = SubResource( 3 )
+frames = SubResource( 4 )
 playing = true
 
 [node name="win_collider" type="CollisionShape2D" parent="win_object"]
-shape = SubResource( 4 )
-[connection signal="tween_completed" from="present_tilemap/tilemap_tween" to="player" method="_on_tilemap_tween_tween_completed"]
+shape = SubResource( 5 )
+[connection signal="tween_completed" from="present_items/present_tilemap/tilemap_tween" to="player" method="_on_tilemap_tween_tween_completed"]
 [connection signal="body_entered" from="win_object" to="win_object" method="_on_win_object_body_entered"]

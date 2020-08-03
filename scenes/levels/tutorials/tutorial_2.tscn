@@ -52,21 +52,32 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="player" parent="." index="6"]
+[node name="tutorial_2_hint4" type="Label" parent="." index="5"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 776.806
+margin_top = 824.325
+margin_right = 1450.81
+margin_bottom = 989.325
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0.266667, 0.490196, 0.831373, 1 )
+text = "Press X again to
+RETURN to present"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="player" parent="." index="8"]
 position = Vector2( 150, 540 )
 
-[node name="present_tilemap" parent="." index="7"]
+[node name="present_tilemap" parent="present_items" index="0"]
 tile_data = PoolIntArray( 65547, 0, 0, 131083, 0, 0, 196619, 0, 0, 262155, 0, 0, 327691, 0, 0, 393227, 0, 0, 458763, 0, 0, 524299, 0, 0, 589835, 0, 0, 655371, 0, 0, 720907, 0, 0, 786443, 0, 0, 851979, 0, 0, 917515, 0, 0, 983051, 0, 0 )
 
-[node name="past_tilemap" parent="." index="8"]
+[node name="past_tilemap" parent="past_items" index="0"]
 tile_data = PoolIntArray( 65559, 0, 0, 131095, 0, 0, 196631, 0, 0, 262167, 0, 0, 327703, 0, 0, 393239, 0, 0, 458775, 0, 0, 524311, 0, 0, 589847, 0, 0, 655383, 0, 0, 720919, 0, 0, 786455, 0, 0, 851991, 0, 0, 917527, 0, 0, 983063, 0, 0 )
 
-[node name="win_object" parent="." index="9"]
+[node name="hint_tween" type="Tween" parent="." index="11"]
+
+[node name="win_object" parent="." index="12"]
 position = Vector2( 1800, 540 )
 scene_to_load = "res://scenes/menus/main_menu.tscn"
-
-[node name="win_sprite" parent="win_object" index="0"]
-frame = 0
-
-[node name="hint_tween" type="Tween" parent="." index="10"]
-[connection signal="tween_started" from="present_tilemap/tilemap_tween" to="." method="_on_tilemap_tween_started"]
+[connection signal="tween_started" from="present_items/present_tilemap/tilemap_tween" to="." method="_on_tilemap_tween_started"]
