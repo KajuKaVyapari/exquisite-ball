@@ -74,6 +74,7 @@ margin_left = 860.0
 margin_top = 601.122
 margin_right = 1026.0
 margin_bottom = 621.122
+scene_to_load = "res://scenes/levels/level_1.tscn"
 
 [node name="tutorial_button" parent="." instance=ExtResource( 2 )]
 margin_left = 860.0

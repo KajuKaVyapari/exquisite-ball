@@ -22,13 +22,13 @@ __meta__ = {
 }
 
 [node name="tutorial_1_hint2" type="Label" parent="." index="3"]
-margin_left = 882.533
+margin_left = 663.472
 margin_top = 89.469
-margin_right = 1589.53
+margin_right = 1731.47
 margin_bottom = 170.469
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0.266667, 0.490196, 0.831373, 1 )
-text = "Reach the green ball ->"
+text = "Get all squares to the green ball"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -40,5 +40,5 @@ position = Vector2( 960, 324 )
 position = Vector2( 1783.08, 138.96 )
 scene_to_load = "res://scenes/levels/tutorials/tutorial_2.tscn"
 
-[node name="win_sprite" parent="win_object" index="0"]
-frame = 1
+[node name="box" parent="." index="10"]
+position = Vector2( 826.457, 658.072 )

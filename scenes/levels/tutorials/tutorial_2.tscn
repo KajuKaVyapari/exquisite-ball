@@ -80,4 +80,7 @@ tile_data = PoolIntArray( 65559, 0, 0, 131095, 0, 0, 196631, 0, 0, 262167, 0, 0,
 [node name="win_object" parent="." index="12"]
 position = Vector2( 1800, 540 )
 scene_to_load = "res://scenes/menus/main_menu.tscn"
+
+[node name="box" parent="." index="13"]
+position = Vector2( 580.927, 431.807 )
 [connection signal="tween_started" from="present_items/present_tilemap/tilemap_tween" to="." method="_on_tilemap_tween_started"]

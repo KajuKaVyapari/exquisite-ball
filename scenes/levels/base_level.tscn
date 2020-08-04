@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scenes/border_tilemap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://assets/sprites/win_object/win_object-2.png" type="Texture" id=8]
 [ext_resource path="res://scripts/levels/win_object.gd" type="Script" id=9]
 [ext_resource path="res://assets/fonts/EastSeaDokdo-Regular.ttf" type="DynamicFontData" id=10]
+[ext_resource path="res://scenes/box.tscn" type="PackedScene" id=11]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0 )
@@ -69,6 +70,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="level_indicator" type="Label" parent="."]
+margin_left = 107.769
+margin_top = 936.092
+margin_right = 200.769
+margin_bottom = 987.092
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Past"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 960, 540 )
 
@@ -100,5 +113,10 @@ playing = true
 
 [node name="win_collider" type="CollisionShape2D" parent="win_object"]
 shape = SubResource( 5 )
+
+[node name="box" parent="." instance=ExtResource( 11 )]
+position = Vector2( 781.151, 448.532 )
+collision_layer = 2147483650
+collision_mask = 7
 [connection signal="tween_completed" from="present_items/present_tilemap/tilemap_tween" to="player" method="_on_tilemap_tween_tween_completed"]
 [connection signal="body_entered" from="win_object" to="win_object" method="_on_win_object_body_entered"]
