@@ -2,7 +2,6 @@
 
 [ext_resource path="res://assets/sprites/border.png" type="Texture" id=1]
 
-
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 
@@ -29,7 +28,9 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 } ]
 0/z_index = 0
 
-[node name="border_tilemap" type="TileMap"]
+[node name="all_tilemap" type="TileMap"]
 tile_set = SubResource( 2 )
+collision_layer = 0
+collision_mask = 7
 format = 1
 tile_data = PoolIntArray( 43, 0, 0 )

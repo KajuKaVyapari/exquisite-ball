@@ -57,7 +57,6 @@ func _physics_process(delta):
 		
 		if time == "present":
 			collision_layer = 4
-
 			present_tween.interpolate_property(present_items, "modulate", present_items.modulate, Color("#00ffffff"), .5)
 			past_tween.interpolate_property(past_items, "modulate", past_items.modulate, Color("#ffffff"), .5)
 			present_tween.start()
@@ -71,8 +70,8 @@ func _physics_process(delta):
 			present_tween.start()
 			past_tween.start()
 			time = "present"
-		get_parent().get_node("time_indicator").text = time.capitalize()
 		
+		get_parent().get_node("time_indicator").text = time.capitalize()
 		for box in get_tree().get_nodes_in_group("box"):
 			box.collision_layer = collision_layer
 
